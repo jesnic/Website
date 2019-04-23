@@ -14,7 +14,7 @@
   $GOALS[ 9] = "module/verifyMatch.php";
   $GOALS[10] = "module/getFrequency.php";
 
-  $GOALS[ 6] = "data/insert.php";
+  $GOALS[ 6] = "module/insert.php";
 
   define("GOALS", $GOALS);
 ?>

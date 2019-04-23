@@ -17,4 +17,8 @@
   $q->bind_param("ssssi", $name, $location, $description, $token, getUserId());
   $q->execute();
   die("SUCCESS");
+
+
+
+  // TODO: REDO
 ?>
