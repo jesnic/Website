@@ -1,7 +1,7 @@
 # JesNic Standards
 ## 1 - Coding
 ### 1.1 - Naming
-File and variable names are written in camelCase style, meaning words directly follow eachother, starting with a capial letter. The name ought to be appropriate and should describe it's purpose. Abbreviations for small scopes such as for-loops are tolerated.
+File and variable names are written in camelCase style, meaning words directly follow eachother, starting with a capial letter. The name ought to be appropriate and should describe it's purpose. Abbreviations for small scopes such as for-loops are tolerated. Libraries and/or modular files may start with _ or their index followed by _ to indicate that it's a module.
 ### 1.2 - Commenting
 Code may be commented for better understanding, but it is not required.
 
