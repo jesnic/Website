@@ -1,4 +1,4 @@
-<?php
+0<?php
   $GOALS = array();
 
   $GOALS[ 7] = "website/seeNotification.php";
@@ -6,8 +6,7 @@
 
   $GOALS[ 0] = "account/login.php";
   $GOALS[ 1] = "account/logout.php";
-  $GOALS[ 2] = "account/getToken.php";
-  $GOALS[ 3] = "account/regenerateToken.php";
+  $GOALS[ 2] = "account/generateToken.php";
 
   $GOALS[ 4] = "module/register.php";
   $GOALS[ 5] = "module/modify.php";
