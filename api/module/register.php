@@ -3,8 +3,7 @@
     die("NO ACCOUNT");
 
   // Read parameters
-  $error = getPost($name, "name");
-  $error = getPost($type, "type", "i");
+  $error = getPost($name, "token");
 
   $error && die("MISSING");
 
@@ -15,16 +14,16 @@
 
   // Insert into db
   $db = db_connect("modules");
-  $sql = "SELECT MAX(id) as idM FROM modules";
+  if(lastId($db, "modules", "id", "token = AES_ENCRYPT(?, '$AESKEY'") != 0)
+    die("EXISTING");
+
+  $id = lastId($db, "modules");
+  $sql = "INSERT INTO modules (id, token, owner, name, location, description) VALUES (?,AESENCRYPT(?, '$AESKEY'),?,'','','')";
   $q = $db->prepare($sql);
+  $uid = getUserId();  // Cuz reference
+  $q->bind_param("isi", $id, $token, $uid);
   $q->execute();
-  $q = $q->get_result()->fetch_assoc();
-  $idM = $q["idM"] + 1;
-  $sql = "INSERT INTO modules (id, owner, name, location, description, type) VALUES (?,?,?,'','',?)";
-  $q = $db->prepare($sql);
-  $q->bind_param("iisi", $idM, getUserId(), $name, $type);
-  $q->execute();
-  $sql = "CREATE TABLE m_".intval($idM)." (timestamp INT NOT NULL, value INT NOT NULL);";
+  $sql = "CREATE TABLE m_".intval($id)." (timestamp INT NOT NULL, 0 INT, 1 INT);";
   $q = $db->prepare($sql);
   $q->execute();
   die("SUCCESS");
