@@ -1,0 +1,32 @@
+// main: style.scss
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin ease($spanne: 200, $typ: linear) {
+  transition: all #{$spanne}ms #{$typ};
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background-color: #F5F5F5;
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+#repos {
+  display: none;
+}

@@ -1,0 +1,52 @@
+{
+    "name": "English",
+    "navigation": {
+        "notifications": {
+            "header": "Notifications",
+            "loading": "Loading notifications...",
+            "empty": "Nothing new",
+            "time": {
+                "format": "m/d/Y H:i"
+            }
+        },
+        "profile": {
+            "nameFormat": "%f% %l%",
+            "headerNew": "Welcome to Neurium",
+            "myProfile": {
+                "title": "My Profile",
+                "description": "Account settings and more"
+            },
+            "logout": {
+                "title": "Logout"
+            },
+            "login": {
+                "title": "Login"
+            }
+        }
+    },
+    "url": {
+        "login": "Login",
+        "dashboard": "Dashboard",
+        "me": "Me"
+    },
+    "error": {
+        "403": {
+            "title": "403",
+            "description": "You don't have access to this site. <i>(%s%)</i>"
+        },
+        "404": {
+            "title": "404",
+            "description": "The requested site <i>(%s%)</i> could not be found."
+        }
+    },
+    "redirect": {
+        "redirecting": "Redirecting...",
+        "pressHere": "Press here if automatic redirecting does not work."
+    },
+    "notification": {
+        "example": {
+            "content": "Example notification content",
+            "description": "Description"
+        }
+    }
+}

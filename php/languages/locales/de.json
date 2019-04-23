@@ -1,0 +1,50 @@
+{
+    "name": "Deutsch",
+    "navigation": {
+        "notifications": {
+            "header": "Benachrichtigungen",
+            "time": {
+                "format": "m/d/Y H:i"
+            }
+        },
+        "profile": {
+            "nameFormat": "%f% %l%",
+            "headerNew": "Willkommen bei Neurium",
+            "myProfile": {
+                "title": "Mein Profil",
+                "description": "Accounteinstellungen und mehr"
+            },
+            "logout": {
+                "title": "Abmelden"
+            },
+            "login": {
+                "title": "Anmelden"
+            }
+        }
+    },
+    "url": {
+        "login": "Anmelden",
+        "dashboard": "Steuerbrett",
+        "me": "Ich"
+    },
+    "error": {
+        "403": {
+            "title": "403",
+            "description": "Sie haben keinen Zugriff auf diese Seite. <i>(%s%)</i>"
+        },
+        "404": {
+            "title": "404",
+            "description": "Die gesuchte Seite <i>(%s%)</i> konnte nicht gefunden werden."
+        }
+    },
+    "redirect": {
+        "redirecting": "Weiterleiten...",
+        "pressHere": "Drücken Sie hier, wenn die automtische Weiterleitung nicht funktioniert."
+    },
+    "notification": {
+        "test": {
+            "content": "Ein Ihnalt mit Auswechslung (%s%)",
+            "description": "Eine Beschreibung mit zwei (%s%, %s2%)"
+        }
+    }
+}

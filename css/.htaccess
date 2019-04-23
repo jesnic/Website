@@ -1,0 +1,4 @@
+<Files "style.css">
+  Allow from all
+</Files>
+Deny from all

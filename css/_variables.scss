@@ -1,0 +1,20 @@
+// main: style.scss
+$nav-top-bg: #F2F3F8;
+$nav-dropdown-header-bg: #F9FAFE;
+$on-nav-dropdown-header-bg: #6c7293;
+$on-nav-dropdown-bg: #6c7293;
+
+$text-muted: #a7abc3;
+
+$success: #66BB6A;
+$error: #EF5350;
+
+$bp: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1399px
+);
+
+$media-sm: "(max-width: " + map-get($bp, "sm")+")";

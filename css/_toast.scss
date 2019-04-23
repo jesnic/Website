@@ -1,0 +1,103 @@
+// main: style.scss
+#toasts {
+  $w: 350px;
+  $h: 80px;
+  $t: 7;
+  $i: 20px;
+  $a: 0.8;
+  position: fixed;
+  opacity: $a;
+  top: 10px;
+  right: 10px;
+  width: $w;
+  z-index: 2;
+  .toast {
+    box-shadow: 0 0 12px #999999;
+    width: 100%;
+    min-height: $h;
+    border-radius: 4px;
+    @extend .row;
+    margin: 0;
+    margin-bottom: 10px;
+    .icon {
+      @extend .col-auto;
+    }
+    .icon + .description {
+      max-width: $w - $h;
+    }
+    position: relative;
+    .description {
+      .title, .description {
+        min-height: $h/2;
+        line-height: $h/2;
+        &.full {
+          height: $h;
+          line-height: $h;
+        }
+      }
+      .description {
+        line-height: $h/3;
+        @extend .text-muted;
+        color: lighten($text-muted, 30%);
+        overflow-wrap: break-word;
+      }
+      a {
+        color: black;
+        font-weight: 500;
+      }
+    }
+    .dismiss {
+      $xh: 15px;
+      position: absolute;
+      cursor: pointer;
+      top: $h/2-$xh/2;
+      right: 15px;
+      >svg {
+        width: $xh;
+        height: $xh;
+        path {
+          @include ease();
+          fill: #F3F3F3;
+        }
+      }
+    }
+    &:hover {
+      .action svg path {
+        fill: #555;
+      }
+    }
+    .icon {
+      svg {
+        margin: ($h - $i)/2 5px;
+        height: $i;
+      }
+    }
+  }
+  .toast {
+    &.success {
+      background-color: darken($success, 10%);
+      color: #F3F3F3;
+      path {
+        &.upper {
+          fill: #555;
+        }
+        &.lower {
+          fill: white;
+        }
+      }
+    }
+    &.error {
+      background-color: darken($error, 10%);
+      color: #F3F3F3;
+      path {
+        fill: #F3F3F3;
+      }
+    }
+  }
+}
+@media #{$media-sm} {
+  #toasts {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}

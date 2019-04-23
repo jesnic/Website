@@ -1,0 +1,276 @@
+// main: style.scss
+#navigation {
+  $h: 100px;
+  $b: 38px;
+  $i: 20px;
+  $w: 400px;
+  >.top {
+    height: $h;
+    background-color: $nav-top-bg;
+    width: 100%;
+    .section {
+      @extend .col-auto;
+      .item {
+        width: $b;
+        height: $b;
+        margin: ($h - $b)/2 5px;
+        border-radius: 4px;
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        line-height: $b;
+        cursor: pointer;
+        padding: ($b - $i)/2;
+        @include ease();
+        img, svg {
+          display: block;
+          height: $i;
+          width: $i;
+        }
+        .dropdown {
+          @include ease();
+          overflow: hidden;
+          position: absolute;
+          top: $b + 20px;
+          right: 0px;
+          width: $w;
+          &.languages {
+            width: 200px;
+            .bars .bar {
+              text-align: right;
+              svg {
+                border-radius: 6px;
+              }
+            }
+          }
+          background-color: white;
+          box-shadow: 0px 0px 50px 0px rgba(82,63,105,0.15);
+          border-radius: 4px;
+
+          visibility: hidden; //https://codepen.io/shshaw/pen/gsFch CREDITS?
+          opacity: 0;
+          cursor: default;
+          .header {
+            height: 80px;
+            background-color: $nav-dropdown-header-bg;
+            color: $on-nav-dropdown-header-bg;
+            line-height: 80px;
+            border-bottom: 2px solid #E6F0FE;
+            .title {
+              font-size: 1rem;
+            }
+          }
+          .bars {
+            $n: 20px;
+            $h: 60px;
+            max-height: ($h+1)*4;
+            overflow-y: auto;
+            overflow-x: hidden;
+            .bar {
+              max-width: $w;
+              text-align: left;
+              text-decoration: none;
+              @extend .row;
+              margin: 0;
+              border-bottom: 1px solid $nav-dropdown-header-bg;
+              @include ease();
+              position: relative;
+              >div{
+                @extend .col;
+              }
+              &.hyperlink {
+                cursor: pointer;
+              }
+              .icon {
+                padding: ($h - $n)/2;
+                height: $h;
+                @extend .col-auto;
+                svg {
+                  width: $n;
+                  height: $n;
+                }
+              }
+              .icon + .description {
+                max-width: $w - $h;
+              }
+              $tR: 1; // Ratio
+              $hR: 1;
+              .title {
+                min-height: $h*($tR/($tR+$hR));
+              }
+              .help {
+                min-height: $h*($hR/($tR+$hR));
+              }
+              .title, .help {
+                color: $on-nav-dropdown-bg;
+                display: block;
+                font-size: 1rem;
+                font-weight: 400;
+                overflow-wrap: break-word;
+                &.full {
+                  height: $h;
+                  line-height: $h;
+                }
+              }
+              .help {
+                line-height: $h/3;
+                @extend .text-muted;
+              }
+              .action {
+                $xh: 15px;
+                position: absolute;
+                cursor: pointer;
+                top: $h/2-$xh/2;
+                right: 10px;
+                height: $xh;
+                width: $xh;
+                >svg {
+                  width: 100%;
+                  height: 100%;
+                  path {
+                    @include ease();
+                    fill: #F3F3F3;
+                  }
+                }
+              }
+              &:hover {
+                background-color: #f7f8fa;
+                .action svg path {
+                  fill: #555;
+                }
+              }
+            }
+            &.languages {
+              .bar {
+                $n: 25px;
+                .icon {
+                  padding: ($h - $n)/2;
+                  min-height: $h;
+                  svg {
+                    border-radius: $h/2;
+                    width: $n;
+                    height: $n;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.show {
+          .dropdown {
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
+            transform: translateY(0%);
+            transition-delay: 0s, 0s, 0.3s;
+          }
+        }
+      }
+    }
+  }
+  .top .section .item {
+    @include ease();
+    >svg {
+      @include ease();
+      path {
+        @include ease();
+      }
+    }
+  }
+  .top .section .item {
+    $a: 0.2;
+    &.notifications {
+      background-color: rgba(29, 201, 183, $a);
+      >svg path{
+        fill: rgb(29, 201, 183);
+        &.line {
+          fill: rgba(50, 50, 50, $a);
+        }
+      }
+      &:hover, &.show {
+        background-color: rgb(29, 201, 183);
+        background-image: linear-gradient(130deg, rgb(29, 201, 183) 20%, darken(rgb(29, 201, 183), 5%) 80%);
+        >svg path {
+          fill: white;
+          &.upper {
+            d: path("M493.61 162.95 c-8.85-6.94-17.24-13.47-29.61-22.81 V-4 c0-26.51-21.49-48-48-48 h-77.55 c-3.04-2.2-5.87-4.26-9.04-6.56 C312.6-70.83 279.2-100.35 256-100 c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56 H96 c-26.51 0-48 21.49-48 48 v144.14 c-12.37 9.33-20.76 15.87-29.61 22.81 A47.995 47.995 0 0 0 0 200.72 v10.65 l96 69.35 V-4 h320 v284.72 l96 -69.35 v-10.65 c0-14.74-6.78-28.67-18.39-37.77 z");
+          }
+          &.line {
+            fill: white;
+            d: path("M176 106h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16z m0 100h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16z m0 100h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16z ");
+          }
+        }
+      }
+    }
+    &.languages {
+      background-color: rgba(61, 148, 251, $a);
+      >svg {
+        border-radius: 10px;
+      }
+      >svg path {
+        fill: rgb(61, 148, 251);
+        &.line {
+          fill: rgba(50, 50, 50, $a);
+        }
+      }
+      &:hover, &.show {
+        background-color: rgb(61, 148, 251);
+        background-image: linear-gradient(130deg, rgb(61, 148, 251) 20%, darken(rgb(61, 148, 251), 5%) 80%);
+        >svg {
+          border-radius: 2px;
+        }
+      }
+    }
+    &.user {
+      background-color: rgba(#FFD54F, $a);
+      >svg path {
+        &.body {
+          fill: #ffb822;
+        }
+        &.head {
+          fill: #ddaa99;
+        }
+      }
+      &:hover, &.show {
+        background-color: #FFD54F;
+        background-image: linear-gradient(130deg, #FFD54F 20%, darken(#FFD54F, 15%) 80%);
+        >svg path {
+          &.body {
+            fill: #F5EDD6;
+          }
+          &.head {
+            d: path("M224 156 c70.7 0 128-57.3 128-128 S294.7 -100 224 -100 96 -42.7 96 28 s57.3 128 128 128z")
+          }
+        }
+      }
+    }
+  }
+  .top .section .item .dropdown .bar {
+    .icon svg path {
+      @include ease();
+    }
+    &.success{
+      .icon svg path {
+        fill: $success;
+      }
+    }
+    &.login{
+      .icon svg path {
+        fill: #4CAF50;
+      }
+      &:hover svg path.arrow {
+        d: path("m369 247L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z");
+      }
+    }
+    &.logout {
+      .icon svg path {
+        fill: #EF5350;
+      }
+      &:hover {
+        .icon svg path.arrow {
+          d: path("M597 273L429 441c-15 15-41 4.5-41-17v-96H252c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34z");
+        }
+      }
+    }
+  }
+}
