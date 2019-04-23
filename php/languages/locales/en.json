@@ -16,6 +16,10 @@
                 "title": "My Profile",
                 "description": "Account settings and more"
             },
+            "dashboard": {
+                "title": "Dashboard",
+                "description": "Overview and statistics of your modules"
+            },
             "logout": {
                 "title": "Logout"
             },

@@ -55,6 +55,7 @@
                 $code .= "<div class=\"body\">";
                   $code .= "<div class=\"bars\">";
                     $code .= generateBarCode("_url.me", "me", $fa_profile, "_navigation.profile.myProfile.title", "_navigation.profile.myProfile.description", $fa_goto);
+                    $code .= generateBarCode("_url.dashboard", "dashboard", $fa_dashboard, "_navigation.profile.dashboard.title", "_navigation.profile.dashboard.description", $fa_goto);
                     $code .= generateBarCode("logout", "logout", $fa_sign_out, "_navigation.profile.logout.title", null, $fa_goto);
                   $code .= "</div>";
                 $code .= "</div>";
