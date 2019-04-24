@@ -32,7 +32,7 @@
         "home": "Home",
         "login": "Login",
         "dashboard": "Dashboard",
-        "me": "Me"
+        "me": "Dashboard/Me"
     },
     "breadcrumbs": {
         "home": "JesNic",

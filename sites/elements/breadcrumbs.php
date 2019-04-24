@@ -5,7 +5,7 @@
 
   $BREADCRUMBS["url.login"] = array("breadcrumbs.public", "breadcrumbs.public_s.login");
   $BREADCRUMBS["url.dashboard"] = array("breadcrumbs.dashboard");
-  $BREADCRUMBS["url.me"] = array("breadcrumbs.dashboard", "breadcrumbs.dashboard.me");
+  $BREADCRUMBS["url.me"] = array("breadcrumbs.dashboard", "breadcrumbs.dashboard_s.me");
 
   function getBreadcrumbs($url) {
     global $locales, $BREADCRUMBS;
@@ -14,7 +14,6 @@
         return array_merge(array("breadcrumbs.home"), $BREADCRUMBS["url.".$k]);
       report_problem("Breadcrumbs for an url were not found", getActiveLanguage(), $url);
     }
-
     foreach(getBreadcrumbs($url) as $crumb)
       echo locale($crumb);
 ?>

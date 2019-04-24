@@ -15,11 +15,12 @@
       require_once "sites/sites.php";
 
       $url = isset($_GET["url"])?$_GET["url"]:"Home";
-      echo "<script>const BASE = '".URLBASE."'</script>";
+      echo "<script>const BASE = '".URLBASE."'</script>\n";
       $AESKEY = AESKEY;
 
       checkSite($url);
     ?>
+    <base href="<?php echo URLBASE."/"; ?>" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css/style.css?<?php echo time();?>">
