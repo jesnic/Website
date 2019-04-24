@@ -14,6 +14,15 @@
         return array_merge(array("breadcrumbs.home"), $BREADCRUMBS["url.".$k]);
       report_problem("Breadcrumbs for an url were not found", getActiveLanguage(), $url);
     }
-    foreach(getBreadcrumbs($url) as $crumb)
-      echo locale($crumb);
 ?>
+<div id="breadcrumbs">
+  <div class="wrapper">
+    <?php
+      $crumbs = getBreadcrumbs($url);
+
+      for($i = 0; $i < count($crumbs)-1; $i++)
+        echo "<a class=\"breadcrumb\">".locale($crumbs[$i])."</a><span class=\"separator\">$fa_breadcrumbs_separator</span>";
+        echo "<a class=\"breadcrumb active\">".locale($crumbs[count($crumbs)-1])."</a>";
+        ?>
+  </diV>
+</div>

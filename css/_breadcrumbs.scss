@@ -1,0 +1,29 @@
+// main: style.scss
+#breadcrumbs {
+  $h: 50px;
+  $i: 10px;
+  height: $h;
+  background-color: white;
+  .wrapper {
+    @extend .container;
+    .breadcrumb, .separator{
+      display: inline-block;
+      color: $breadcrumb;
+      fill: $breadcrumb;
+      height: 100%;
+    }
+    .separator {
+      height: $i;
+      width: $i;
+      margin-left: 5px;
+      margin-right: 5px;
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .breadcrumb {
+      line-height: $h;
+    }
+  }
+}
