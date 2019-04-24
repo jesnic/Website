@@ -1,9 +1,12 @@
 <?php
+  $SITES["url.home"] = "sites/public/home.php";
+
   $SITES["403"] = "sites/error/403.php";
   $SITES["404"] = "sites/error/404.php";
 
   $SITES["url.login"] = "sites/public/login.php";
   $SITES["url.dashboard"] = "sites/dashboard/dashboard.php";
+  $SITES["url.me"] = "sites/dashboard/me.php";
 
   function getSite($url) {
     global $locales, $SITES;

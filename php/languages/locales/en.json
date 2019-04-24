@@ -29,9 +29,26 @@
         }
     },
     "url": {
+        "home": "Home",
         "login": "Login",
         "dashboard": "Dashboard",
         "me": "Me"
+    },
+    "breadcrumbs": {
+        "home": "JesNic",
+        "error": "Error",
+        "error_s": {
+            "403": "403",
+            "404": "404"
+        },
+        "public": "Public",
+        "public_s": {
+            "login": "Login"
+        },
+        "dashboard": "Dashboard",
+        "dashboard_s": {
+            "me": "My Profile"
+        }
     },
     "error": {
         "403": {

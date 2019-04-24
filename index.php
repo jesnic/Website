@@ -27,9 +27,10 @@
   <body>
     <?php
       require "sites/elements/navigation.php";
+      require "sites/elements/breadcrumbs.php";
 
-      require getSite($url);
-
+      if(!@include getSite($url))
+        $ERROR = "404";
       if(isset($ERROR))
         require_once $SITES[$ERROR];
     ?>

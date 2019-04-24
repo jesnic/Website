@@ -17,7 +17,7 @@
         $details = notificationTypeDetails($contentType);
 
         if(is_null($details)) {
-          problem('$details is not defined', $contentType);
+          report_problem('$details is not defined', $contentType);
           continue;
         }
 

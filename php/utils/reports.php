@@ -1,5 +1,5 @@
 <?php
-  function problem($content, ...$data) {
+  function report_problem($content, ...$data) {
     $bt = debug_backtrace();
     $trace = $bt[0]["file"].":".$bt[0]["line"];
     $d = "";
