@@ -1,4 +1,4 @@
-0<?php
+<?php
   $GOALS = array();
 
   $GOALS[ 7] = "website/seeNotification.php";

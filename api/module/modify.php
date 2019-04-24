@@ -10,15 +10,16 @@
 
   $error && die("MISSING");
 
+  // Check access
+  if(!doesOwnModule($token)) {
+    report_suspicion("THEFT", "Foreign token request", $token);
+  }
+
   // Update
   $db = db_connect("modules");
-  $sql = "UPDATE modules SET name=?, location=?, description=? WHERE token=AES_ENCRYPT(?, '$AESKEY') AND owner=?";
+  $sql = "UPDATE modules SET name=?, location=?, description=? WHERE token=AES_ENCRYPT(?, '$AESKEY')";
   $q = $db->prepare($sql);
-  $q->bind_param("ssssi", $name, $location, $description, $token, getUserId());
+  $q->bind_param("ssss", $name, $location, $description, $token);
   $q->execute();
   die("SUCCESS");
-
-
-
-  // TODO: REDO
 ?>

@@ -16,9 +16,9 @@
   $q->bind_param("s", $token);
   if($q->execute()) {
     if(!$q->bind_result($id) || !$q->fetch())
-      die("INVALID");
+      report_suspion("INVALID", "Invalid token passed", $token);
   } else
-    die("INVALID");
+    report_suspion("INVALID", "Invalid token passed", $token);
   $q->close();
 
   // Form SQL

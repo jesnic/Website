@@ -5,7 +5,8 @@
 
   define("URLBASE", "http://localhost/JesNic");
 
-  define("KEYLENGTH", 32);
+  define("KEYLENGTH_MIN", 10);
+  define("KEYLENGTH_MAX", 32);
   define("KEYCHARS", "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
   define("AESKEY", "");

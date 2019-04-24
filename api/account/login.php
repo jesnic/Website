@@ -48,6 +48,5 @@
   $_SESSION["email"] = $q["email"];
   $_SESSION["firstname"] = $q["firstname"];
   $_SESSION["lastname"] = $q["lastname"];
-
   die("SUCCESS");
 ?>

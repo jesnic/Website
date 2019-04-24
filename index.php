@@ -7,7 +7,7 @@
     <?php
       require_once "php/config.php";
       require_once "php/utils/sql.php";
-      require_once "php/utils/problem.php";
+      require_once "php/utils/reports.php";
       require_once "php/utils/account.php";
       require_once "php/utils/svgs.php";
       require_once "php/languages/languages.php";
