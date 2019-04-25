@@ -254,6 +254,21 @@
         fill: $success;
       }
     }
+    &.me {
+      .icon svg path {
+        fill: #388E3C;
+      }
+    }
+    &.dashboard {
+      .icon svg path {
+        fill: #ffb822;
+      }
+    }
+    &.inbox {
+      .icon svg path {
+        fill: #3d94fb;
+      }
+    }
     &.login{
       .icon svg path {
         fill: #4CAF50;

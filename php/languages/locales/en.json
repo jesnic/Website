@@ -13,12 +13,16 @@
             "nameFormat": "%f% %l%",
             "headerNew": "Welcome to Neurium",
             "myProfile": {
-                "title": "My Profile",
+                "title": "My profile",
                 "description": "Account settings and more"
             },
             "dashboard": {
                 "title": "Dashboard",
                 "description": "Overview and statistics of your modules"
+            },
+            "inbox": {
+                "title": "My messages",
+                "description": "Send and view messages"
             },
             "logout": {
                 "title": "Logout"
@@ -32,7 +36,8 @@
         "home": "Home",
         "login": "Login",
         "dashboard": "Dashboard",
-        "me": "Dashboard/Me"
+        "me": "Dashboard/Me",
+        "inbox": "Dashboard/Inbox"
     },
     "breadcrumbs": {
         "home": "JesNic",
@@ -47,7 +52,8 @@
         },
         "dashboard": "Dashboard",
         "dashboard_s": {
-            "me": "My Profile"
+            "me": "My profile",
+            "onbox": "My messages",
         }
     },
     "error": {
