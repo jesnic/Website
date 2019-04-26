@@ -6,6 +6,7 @@
   $BREADCRUMBS["url.login"] = array("breadcrumbs.public", "breadcrumbs.public_s.login");
   $BREADCRUMBS["url.dashboard"] = array("breadcrumbs.dashboard");
   $BREADCRUMBS["url.me"] = array("breadcrumbs.dashboard", "breadcrumbs.dashboard_s.me");
+  $BREADCRUMBS["url.inbox"] = array("breadcrumbs.dashboard", "breadcrumbs.dashboard_s.inbox");
 
   function getBreadcrumbs($url) {
     global $locales, $BREADCRUMBS;
@@ -19,7 +20,6 @@
   <div class="wrapper">
     <?php
       $crumbs = getBreadcrumbs($url);
-
       for($i = 0; $i < count($crumbs)-1; $i++)
         echo "<a class=\"breadcrumb\">".locale($crumbs[$i])."</a><span class=\"separator\">$fa_breadcrumbs_separator</span>";
         echo "<a class=\"breadcrumb active\">".locale($crumbs[count($crumbs)-1])."</a>";
