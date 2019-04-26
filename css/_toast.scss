@@ -87,10 +87,10 @@
       }
     }
     &.error {
-      background-color: darken($error, 10%);
-      color: #F3F3F3;
+      background-color: #e89d96;
+      color: #7a1200;
       path {
-        fill: #F3F3F3;
+        fill: #7a1200;
       }
     }
   }
