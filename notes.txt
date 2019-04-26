@@ -1,7 +1,2 @@
-Notification types:
-  0: success (#66BB6A)
-  1: warning ()
-  2: error ()
-
 Ctrl+Click: Mark all notifications as seen
 Ctrl+Click: Remove all toasts
