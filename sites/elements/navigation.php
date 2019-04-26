@@ -3,7 +3,8 @@
     <div class="container">
       <div class="row justify-content-between">
         <div class="section">
-          a
+          <a href="">A COOL LOGO</a><br>
+          JesNic
         </div>
         <div class="section">
           <?php
@@ -34,7 +35,7 @@
                 $code .= "<div class=\"body\">";
                   $code .= "<div class=\"bars languages\">";
                   foreach (array_diff(scandir(__DIR__."/../../php/languages/locales"), array(".", "..")) as $file) { $f = "flag_".str_replace(".json", "", $file);
-                      $code .= generateBarCode("language", "", $$f, locale("name", str_replace(".json", "", $file)), null, null, "language=\"".str_replace(".json", "", $file)."\"");
+                      $code .= generateBarCode("language", getActiveLanguage()==str_replace(".json", "", $file)?"active":"", $$f, locale("name", str_replace(".json", "", $file)), null, null, "language=\"".str_replace(".json", "", $file)."\"");
                     }
                   $code .= "</div>";
                 $code .= "</div>";

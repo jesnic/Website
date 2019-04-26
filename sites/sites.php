@@ -25,6 +25,9 @@
 
   function checkSite($url) {
     global $locales;
+    foreach($locales[getActiveLanguage()]["url"] as $k => $u)
+      if($url == $u)
+        return;
     foreach($locales as $l => $ll)
       if($l != getActiveLanguage())
         foreach($locales[$l]["url"] as $k => $u)

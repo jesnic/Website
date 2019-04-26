@@ -37,6 +37,10 @@
           &.languages {
             width: 200px;
             .bars .bar {
+              &.active {
+                background-color: #eee;
+                cursor: default;
+              }
               text-align: right;
               svg {
                 border-radius: 6px;
