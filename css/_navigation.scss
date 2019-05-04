@@ -10,6 +10,11 @@
     width: 100%;
     .section {
       @extend .col-auto;
+      height: 100%;
+      #logo {
+        height: $h - ($h - $b);
+        margin: ($h - $b)/2 5px;
+      }
       .item {
         width: $b;
         height: $b;

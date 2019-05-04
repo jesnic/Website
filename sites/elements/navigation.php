@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row justify-content-between">
         <div class="section">
-          
+          <img id="logo" src="images/icon-light.png" />
         </div>
         <div class="section">
           <?php
