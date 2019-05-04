@@ -3,8 +3,7 @@
     <div class="container">
       <div class="row justify-content-between">
         <div class="section">
-          <a href="">A COOL LOGO</a><br>
-          JesNic
+          
         </div>
         <div class="section">
           <?php

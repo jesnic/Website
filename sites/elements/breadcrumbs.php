@@ -1,20 +1,16 @@
 <?php
-  $BREADCRUMBS["url.home"] = array();
+  $BREADCRUMBS["Home"] = array();
   $BREADCRUMBS["403"] = array("breadcrumbs.error", "breadcrumbs.error_s.403");
   $BREADCRUMBS["404"] = array("breadcrumbs.error", "breadcrumbs.error_s.404");
 
-  $BREADCRUMBS["url.login"] = array("breadcrumbs.public", "breadcrumbs.public_s.login");
-  $BREADCRUMBS["url.dashboard"] = array("breadcrumbs.dashboard");
-  $BREADCRUMBS["url.me"] = array("breadcrumbs.dashboard", "breadcrumbs.dashboard_s.me");
-  $BREADCRUMBS["url.inbox"] = array("breadcrumbs.dashboard", "breadcrumbs.dashboard_s.inbox");
+  $BREADCRUMBS["Login"] = array("breadcrumbs.public_s.login");
+  $BREADCRUMBS["Dashboard"] = array("breadcrumbs.dashboard");
+  $BREADCRUMBS["Dashboard/Me"] = array("breadcrumbs.dashboard", "breadcrumbs.dashboard_s.me");
 
   function getBreadcrumbs($url) {
-    global $locales, $BREADCRUMBS;
-    foreach($locales[getActiveLanguage()]["url"] as $k => $u)
-      if($url == $u)
-        return array_merge(array("breadcrumbs.home"), $BREADCRUMBS["url.".$k]);
-      report_problem("Breadcrumbs for an url were not found", getActiveLanguage(), $url);
-    }
+    global $BREADCRUMBS;
+    return array_merge(array("breadcrumbs.home"), $BREADCRUMBS[$url]);
+  }
 ?>
 <div id="breadcrumbs">
   <div class="wrapper">

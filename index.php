@@ -17,8 +17,6 @@
       $url = isset($_GET["url"])?$_GET["url"]:"Home";
       echo "<script>const BASE = '".URLBASE."'</script>\n";
       $AESKEY = AESKEY;
-
-      checkSite($url);
     ?>
     <base href="<?php echo URLBASE."/"; ?>" />
     <meta charset="utf-8">

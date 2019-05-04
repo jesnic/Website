@@ -1,7 +1,7 @@
 <?php
-  if(!checkAccess()) {
+  if(!checkAccess())
     return;
-  }
+  
 ?>
 <div id="dashboard">
   <div class="container">
