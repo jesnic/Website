@@ -1,12 +1,12 @@
 <?php
   header('Content-type: image/svg+xml');
-  $topLeft = "#81C784";
-  $topRight = "#039BE5";
-  $bottomLeft = "#f44336";
-  $bottomRight = "#FB8C00";
+  $topLeft = "#81C784";       // 300 - Green
+  $topRight = "#039BE5";      // 600 - Light Blue
+  $bottomLeft = "#f44336";    // 500 - Red
+  $bottomRight = "#FFB74D";   // 300 - Orange
 
-  $background = "#21252b";
-  $letters = "#ffffff";
+  $background = "#212121";    // 900 - Grey
+  $letters = "#E0E0E0";       // 300 - Grey
 
   isset($_GET["tl"]) && $topLeft = $_GET["tl"];
   isset($_GET["tr"]) && $topRight = $_GET["tr"];
