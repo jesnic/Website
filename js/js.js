@@ -1,6 +1,6 @@
 var DEBUG = true;
 DEBUG || window.console.log("%cHold on!", "font-weight: bold; font-style: sans-serif; color: #EF5350; text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; font-size: 30px;")
-DEBUG || window.console.warn("%cThis is intended for developers, if you were told to post something here there is a good chance someone may be attempting to comprimise your account. ","font-weight: bold; font-size: 14px");
+DEBUG || window.console.log("%cThis is intended for developers,\nif youwere told to post something\nhere there is a good chance someone\nmay be attempting to comprimise your\naccount. ","font-style: sans-serif; color: #EF5350; font-weight: bold; font-size: 16px;text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;");
 
 if(!DEBUG)window.console.log = function(){};
 
