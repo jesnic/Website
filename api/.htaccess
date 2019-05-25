@@ -1,4 +1,3 @@
-<Files "interface.php">
-  Allow from all
-</Files>
-Deny from all
+RewriteEngine on
+RewriteRule !interface\.php ../index.php?url=404
+# 404 to hide directory
