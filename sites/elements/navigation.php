@@ -1,3 +1,72 @@
+<div id="sidebar">
+  <div class="logo">
+    <?php
+      echo getLogo(1, null, "#E0E0E0", "#81C784", "#039BE5", "#f44336", "#FFB74D");
+    ?>
+  </div>
+  <div class="tree">
+    <?php
+      $navigation = array(
+        array(
+          "icon" => ($fa_home),
+          "text" => "Home",
+          "href" => ""
+        ),
+        array(
+          "icon" => $fa_dashboard,
+          "text" => "Modules",
+          "children" => array(
+            array(
+              "icon" => null,
+              "text" => "Weather Module",
+              "children" => array(
+                array(
+                  "icon" => ($fa_user),
+                  "text" => "Customize",
+                  "href" => "Module/1/Customize"
+                )
+              )
+            ),
+            array(
+              "icon" => ($fa_envelope_open_text),
+              "text" => "Customize"
+            )
+          )
+        )
+      );
+      function getTreeNode($node) {
+        global $fa_caret_up, $fa_caret_down;
+        $code = "";
+        isset($node["text"]) || $node["text"] = "";
+        $code .= "<a".(isset($node["href"])?" href=\"{$node['href']}\"":" href=\"javascript:void(0);\"").">";
+          isset($node["icon"]) && $code .= $node["icon"];
+          $code .= "<div>{$node['text']}</div>";
+          isset($node["children"]) && $code .= "<div class=\"dropper\">$fa_caret_up</div>";
+        $code .= "</a>";
+        isset($node["children"]) && $code .= scanTreeNodes($node["children"]);
+        return $code;
+      }
+      echo scanTreeNodes($navigation, true);
+
+      function scanTreeNodes($tree, $daddy = false) {
+        $code = "";
+        $kids = false;
+        foreach($tree as $node) {
+          $code .= "<li>".getTreeNode($node)."</li>";
+          $kids = true;
+        }
+        $code .= "</ul>";
+        $code = "<ul".($kids&&!$daddy?" class=\"kids\"":"").">".$code;
+        return $code;
+      }
+    ?>
+  </div>
+</div>
+
+<?php
+  return;
+  // Old Navigation
+?>
 <div id="navigation">
   <div class="top">
     <div class="container">

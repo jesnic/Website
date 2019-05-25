@@ -157,6 +157,14 @@ var icons = {
 icons.autoload();
 requests.loadNotifications();
 
+// https://stackoverflow.com/questions/13470898/keep-uppercase-using-attr-with-jquery-case-sensitive/22335908
+$.attrHooks['viewbox'] = {
+    set: function(elem, value, name) {
+        elem.setAttributeNS(null, 'viewBox', value + '');
+        return value;
+    }
+};
+
 // Event junk
 $(".item").click(function(e) {
   var t = $(this);
@@ -200,6 +208,13 @@ $("body").on("click", ".bar .action svg.fa-times", function(e) {
     t.parents(".bar").fadeOut(function() {$(this).remove();requests.loadNotifications()});
   }, 1);
 });
-$("ul.kids").each(function() {
-  $(this).siblings("a").append($("<div></div>").css("float", "right").html("hello"));
+$(".tree li>a").click(function() {
+  let sib = $(this).siblings("ul");
+  if($(this).hasClass("active")) {
+    sib.slideUp();
+    $(this).removeClass("active");
+  } else {
+    sib.slideDown();
+    $(this).addClass("active");
+  }
 });

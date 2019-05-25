@@ -1,0 +1,75 @@
+// main: style.scss
+$nav-width: 250px;
+
+#sidebar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: $nav-width;
+  background-color: #404E67;
+  color: #E0E0E0;
+  font-size: 15px;
+  line-height: 20px;
+  .logo {
+    box-sizing: content-box;
+    padding: 20px;
+    padding-top: 20px;
+  }
+  .tree {
+    ul{
+      list-style-type: none;
+      padding-left: 17px;
+      float: left;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      display: none;
+      li {
+        a {
+          width: 100%;
+          color: inherit;
+          padding: 7px 20px;
+          display: block;
+          vertical-align: middle;
+          font-weight: 300;
+          float: left;
+          svg {
+            &:not(.toggle) {
+              height: 17px;
+              float: left;
+              path {
+                fill: #E0E0E0;
+                @include ease();
+              }
+            }
+          }
+          .dropper {
+            float: right;
+          }
+          div {
+            float: left;
+            display: inline-block;
+            &::before {
+              content: "\00a0";
+            }
+          }
+          &.active {
+            .dropper svg path {
+              d: path("M288.662 302H31.338c-17.818 0-26.741 21.543-14.142 34.142l128.662 128.662c7.81 7.81 20.474 7.81 28.284 0l128.662 -128.662c12.6 -12.599 3.676 -34.142-14.142 -34.142z");
+            }
+          }
+        }
+      }
+    }
+    &>ul {
+      padding-left: 0px;
+      display: block;
+    }
+  }
+}
+
+#content {
+  padding-left: $nav-width+20px;
+  padding-top: 20px;
+}
