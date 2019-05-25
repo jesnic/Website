@@ -15,5 +15,7 @@
 
   $GOALS[ 6] = "module/insert.php";
 
+  $GOALS[11] = "website/getIcon.php";
+
   define("GOALS", $GOALS);
 ?>
