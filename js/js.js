@@ -1,4 +1,4 @@
-var DEBUG = true;
+var DEBUG = false;
 DEBUG || window.console.log("%cHold on!", "font-weight: bold; font-style: sans-serif; color: #EF5350; text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; font-size: 30px;")
 DEBUG || window.console.log("%cThis is intended for developers,\nif you were told to post something\nhere there is a good chance someone\nmay be attempting to comprimise your\naccount. ","font-style: sans-serif; color: #EF5350; font-weight: bold; font-size: 16px;text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;");
 
@@ -13,9 +13,13 @@ var options = {
   },
   icons: {
     autoload: ["success", "error", "close"]
+  },
+  navigation: {
+    foldTime: 200
   }
 }
-function api(goal, data, success, ignoreFail, async) {
+
+function api(goal, data, success, ignoreFail) {
   data = data || {};
   success = success || function(){};
   data["g"] = goal;
@@ -36,23 +40,26 @@ function api(goal, data, success, ignoreFail, async) {
     }
   })
 }
+
 function handleMessage(g, r) {
   if(r == "ALREADY")
     return toast.error("You are already logged in", "You must not be logged in to preform this action");
 
-  toast.error("An unknown error occured!", DEBUG?r:"Please <a href=\"Bug\">report this</a> to us." , {timeout: -1});
+  toast.error("An unknown error occured!", DEBUG?"@"+g+": "+r:"Please <a href=\"Bug\">report this</a> to us." , {timeout: -1});
 }
+
 function goto(goal) {
   console.log(goal);
   window.location.href = BASE+'/'+goal;
 }
+
 var requests = {
   login: function() {
     let data = {
       email: $("#email").val(),
       password: $("#password").val()
     }
-    api(0, data, function(r) {
+    api(0, data, function() {
       goto("Dashboard");
     });
   },
@@ -75,6 +82,7 @@ var requests = {
     }, true);
   }
 };
+
 var toast = {
   toast: function(type, title, description, timeout, dismissable) {
     let icon = icons.get(type);
@@ -99,7 +107,7 @@ var toast = {
           });
       });
       console.log(toast);
-      dismissable && toast.append($("<div></div>", {class: "dismiss"}).html($("#icon_repo_close").html()));
+      dismissable && toast.append($("<div></div>", {class: "dismiss"}).html(icons.get("close")));
     $("#toasts").append(toast.fadeIn(options.toast.fadeTime));
     timeout != -1 && setTimeout(function() {
       toast = toast || $();
@@ -107,6 +115,7 @@ var toast = {
         $(this).remove();
       });
     }, timeout||options.toast.defaultTimeout);
+    return toast;
   },
   success: function(title, description, options) {
     var options = options || {};
@@ -114,7 +123,7 @@ var toast = {
     let dismissable = options["dismissable"] == undefined?true:options["dismissable"];
     console.log(options)
     console.log(dismissable)
-    toast.toast("success", title, description, timeout, dismissable);
+    return toast.toast("success", title, description, timeout, dismissable);
   },
   warning: function(title, description, options) {
     var options = options || {};
@@ -122,7 +131,7 @@ var toast = {
     let dismissable = options["dismissable"] == undefined?true:options["dismissable"];
     console.log(options)
     console.log(dismissable)
-    toast.toast("warning", title, description, timeout, dismissable);
+    return toast.toast("warning", title, description, timeout, dismissable);
   },
   error: function(title, description, options) {
     var options = options || {};
@@ -130,9 +139,10 @@ var toast = {
     let dismissable = options["dismissable"] == undefined?true:options["dismissable"];
     console.log(options["dismissable"])
     console.log(dismissable)
-    toast.toast("error", title, description, timeout, dismissable);
+    return toast.toast("error", title, description, timeout, dismissable);
   }
 }
+
 var icons = {
   repo: {},
   loading: true,
@@ -211,10 +221,10 @@ $("body").on("click", ".bar .action svg.fa-times", function(e) {
 $(".tree li>a").click(function() {
   let sib = $(this).siblings("ul");
   if($(this).hasClass("active")) {
-    sib.slideUp();
+    sib.slideUp(options.navigation.foldTime);
     $(this).removeClass("active");
   } else {
-    sib.slideDown();
+    sib.slideDown(options.navigation.foldTime);
     $(this).addClass("active");
   }
 });
